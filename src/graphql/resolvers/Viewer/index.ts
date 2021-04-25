@@ -153,7 +153,6 @@ export const viewerResolvers: IResolvers = {
         throw new Error(`Failed to login: ${error}`);
       }
     },
-
     logOut: (
       _root: undefined,
       // eslint-disable-next-line @typescript-eslint/ban-types
@@ -166,6 +165,12 @@ export const viewerResolvers: IResolvers = {
       } catch (error) {
         throw new Error(`Failed to log out: ${error}`);
       }
+    },
+    connectStripe: (): Viewer => {
+      return { didRequest: true }
+    },
+    disconnectStripe: (): Viewer => {
+      return { didRequest: true }
     },
   },
   Viewer: {
